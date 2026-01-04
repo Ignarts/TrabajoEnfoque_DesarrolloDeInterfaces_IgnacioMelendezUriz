@@ -1,7 +1,6 @@
 package com.example.model;
 
 public class Vivienda {
-  private int id;
   private String codigoReferencia;
   private String ubicacion;
   private double precioMensual;
