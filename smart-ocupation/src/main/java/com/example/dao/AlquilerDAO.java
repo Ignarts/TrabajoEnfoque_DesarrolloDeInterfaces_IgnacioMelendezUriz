@@ -29,7 +29,6 @@ public class AlquilerDAO {
     try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
         PreparedStatement ps = conn.prepareStatement(sql)) {
 
-      // Convertimos LocalDate a java.sql.Date para la base de datos
       ps.setDate(1, java.sql.Date.valueOf(inicio));
       ps.setDate(2, java.sql.Date.valueOf(fin));
 
@@ -37,7 +36,7 @@ public class AlquilerDAO {
       while (rs.next()) {
         Alquiler a = new Alquiler();
         a.setNumExpediente(rs.getInt("num_expediente"));
-        // Convertimos java.sql.Date de la BD a LocalDate
+
         a.setFechaEntrada(rs.getDate("fecha_entrada").toLocalDate());
         a.setNombreCliente(rs.getString("nombre_cliente"));
 
